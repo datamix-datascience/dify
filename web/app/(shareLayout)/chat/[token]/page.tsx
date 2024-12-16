@@ -2,17 +2,17 @@
 import React from 'react'
 import ChatWithHistoryWrap from '@/app/components/base/chat/chat-with-history'
 import SwrInitor from '@/app/components/swr-initor'
-import { CHAT_AUTH_REQUIRED } from '@/config'
+import { CHATBOT_AUTH_DISABLED } from '@/config'
 
 const Chat = () => {
-  return CHAT_AUTH_REQUIRED
+  return CHATBOT_AUTH_DISABLED
     ? (
+      <ChatWithHistoryWrap />
+    )
+    : (
       <SwrInitor>
         <ChatWithHistoryWrap />
       </SwrInitor>
-    )
-    : (
-      <ChatWithHistoryWrap />
     )
 }
 

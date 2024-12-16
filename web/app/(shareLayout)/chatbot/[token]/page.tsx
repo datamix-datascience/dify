@@ -2,17 +2,17 @@
 import React from 'react'
 import EmbeddedChatbot from '@/app/components/base/chat/embedded-chatbot'
 import SwrInitor from '@/app/components/swr-initor'
-import { CHAT_AUTH_REQUIRED } from '@/config'
+import { CHATBOT_AUTH_DISABLED } from '@/config'
 
 const Chatbot = () => {
-  return CHAT_AUTH_REQUIRED
+  return CHATBOT_AUTH_DISABLED
     ? (
+      <EmbeddedChatbot />
+    )
+    : (
       <SwrInitor>
         <EmbeddedChatbot />
       </SwrInitor>
-    )
-    : (
-      <EmbeddedChatbot />
     )
 }
 

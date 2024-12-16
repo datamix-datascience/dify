@@ -259,4 +259,4 @@ export const TEXT_GENERATION_TIMEOUT_MS = textGenerationTimeoutMs
 
 export const DISABLE_UPLOAD_IMAGE_AS_ICON = process.env.NEXT_PUBLIC_DISABLE_UPLOAD_IMAGE_AS_ICON === 'true'
 
-export const CHAT_AUTH_REQUIRED = process.env.NEXT_PUBLIC_CHAT_AUTH_REQUIRED === 'true'
+export const CHATBOT_AUTH_DISABLED = process.env.NEXT_PUBLIC_CHATBOT_AUTH_DISABLED === 'true'
