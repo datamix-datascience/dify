@@ -2,9 +2,15 @@
 DOCKER_REGISTRY=katopz
 WEB_IMAGE=$(DOCKER_REGISTRY)/dify-web
 API_IMAGE=$(DOCKER_REGISTRY)/dify-api
-VERSION=0.14.1
+VERSION=0.15.0
 
 # Build Docker images
+# docker buildx build --platform linux/arm64 -t katopz/dify-web:0.15.0 --push .
+# docker buildx build --platform linux/amd64 -t katopz/dify-web:0.15.0 --push .
+# docker inspect katopz/dify-web:0.15.0 | grep Architecture
+
+# docker buildx build --platform linux/amd64 -t $(WEB_IMAGE):$(VERSION) --push .
+# docker inspect $(WEB_IMAGE):$(VERSION) | grep Architecture
 build-web:
 	@echo "Building web Docker image: $(WEB_IMAGE):$(VERSION)..."
 	docker build -t $(WEB_IMAGE):$(VERSION) ./web
