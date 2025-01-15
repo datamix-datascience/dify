@@ -48,13 +48,16 @@ const SwrInitor = ({
           return
         }
         if (!((consoleToken && refreshToken) || (consoleTokenFromLocalStorage && refreshTokenFromLocalStorage))) {
+          localStorage.setItem('redirect_path', pathname)
           router.replace('/signin')
           return
         }
         if (searchParams.has('access_token') || searchParams.has('refresh_token')) {
           consoleToken && localStorage.setItem('console_token', consoleToken)
           refreshToken && localStorage.setItem('refresh_token', refreshToken)
-          router.replace(pathname)
+          const redirectPath = localStorage.getItem('redirect_path') || '/apps'
+          localStorage.removeItem('redirect_path')
+          router.replace(redirectPath)
         }
 
         setInit(true)
